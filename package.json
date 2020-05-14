@@ -1,0 +1,19 @@
+{
+  "name": "cypresstests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marb61a/cypresstesting.git"
+  },
+  "author": "Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marb61a/cypresstesting/issues"
+  },
+  "homepage": "https://github.com/marb61a/cypresstesting#readme"
+}
