@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marb61a/cypresstesting/issues"
   },
-  "homepage": "https://github.com/marb61a/cypresstesting#readme"
+  "homepage": "https://github.com/marb61a/cypresstesting#readme",
+  "devDependencies": {
+    "cypress": "^4.5.0"
+  }
 }
