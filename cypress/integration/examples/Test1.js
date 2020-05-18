@@ -12,6 +12,20 @@ describe("Ny First Test Suite", function(){
         // Some elements may exist with the same name but be invisible, this
         // will throw off counts and asserts thus failing tests
         cy.get('.product:visible')
-            .should('have.length', 4)
+            .should('have.length', 4);
+        
+        // Parent - Child chaining
+        cy.get('.products')
+            .find('.product')
+            .should('have.length', 4);
+        
+        // Finding the ADD TO CART button on a specific element
+        // in this case the 3rd element as the count will begin 
+        // from 0 up
+        cy.get('.products')
+            .find('.product')
+            .eq(2)
+            .contains('ADD TO CART')   
+            .click()              
     });
 });
