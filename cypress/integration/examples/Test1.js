@@ -13,9 +13,14 @@ describe("Ny First Test Suite", function(){
         // will throw off counts and asserts thus failing tests
         cy.get('.product:visible')
             .should('have.length', 4);
+
+        // Cypress allows the use of aliasing through use of the word as
+        // the element aliased will then be reffered to by its alias through
+        // the tests
+        cy.get('.products').as('productLocator')
         
         // Parent - Child chaining
-        cy.get('.products')
+        cy.get('.productLocator')
             .find('.product')
             .should('have.length', 4);
         
@@ -23,7 +28,7 @@ describe("Ny First Test Suite", function(){
         // in this case the 3rd element as the count will begin 
         // from 0 up
         // The below query is the same as cy.get(':nth-child(3) > .product-action > button').click() 
-        cy.get('.products')
+        cy.get('.productLocator')
             .find('.product')
             .eq(2)
             .contains('ADD TO CART')   
@@ -31,7 +36,7 @@ describe("Ny First Test Suite", function(){
         
         // Getting a product from the list of product
         // $el is a JQuery wrapper
-        cy.get('.products')
+        cy.get('.productLocator')
             .find('.product')
             .each(($el, index, $list) => {
                 // Grabs the text on a specific element
@@ -44,11 +49,11 @@ describe("Ny First Test Suite", function(){
         
         // Cypress is asynchronous by  nature unlike Selenium
         cy.get('.brand')
-            .then(function() {
-
+            .then(function(logoelement) {
+                cy.log(logoelement.text())
             })
         
         const logo = cy.get('.brand')
-        
+
     });
 });
