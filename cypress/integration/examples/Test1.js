@@ -22,10 +22,33 @@ describe("Ny First Test Suite", function(){
         // Finding the ADD TO CART button on a specific element
         // in this case the 3rd element as the count will begin 
         // from 0 up
+        // The below query is the same as cy.get(':nth-child(3) > .product-action > button').click() 
         cy.get('.products')
             .find('.product')
             .eq(2)
             .contains('ADD TO CART')   
-            .click()              
+            .click()
+        
+        // Getting a product from the list of product
+        // $el is a JQuery wrapper
+        cy.get('.products')
+            .find('.product')
+            .each(($el, index, $list) => {
+                // Grabs the text on a specific element
+                const vegText = $el.find('h4.product-name').text()
+
+                if(vegText.includes('Cashews')){
+                    $el.find('button').click()
+                }
+            });
+        
+        // Cypress is asynchronous by  nature unlike Selenium
+        cy.get('.brand')
+            .then(function() {
+
+            })
+        
+        const logo = cy.get('.brand')
+        
     });
 });
