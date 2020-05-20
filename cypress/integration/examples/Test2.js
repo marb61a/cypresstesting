@@ -24,7 +24,28 @@ describe("Ny First Test Suite", function(){
         
         // Dropdowns
         // There are 2 different types of dropdown, the first type is
-        // Static dropdowns 
+        // Static dropdowns which is called this because the available
+        // options in the dropdown are fixed. A dynamic dropdown on the 
+        // otherhand will have options based on an input
+        // Statcic Dropdowm
+        cy.get('select')
+            .select('option2')
+            .should('have.value', 'option2')
+
+        // Dynamic dropdowns
+        // These can be a lot more tricky than static dropdows
+        // This will type the 3 characters into the input box
+        cy.get('#autocomplete')
+            .type('ind')
         
+        cy.get('.ui-menu-item div')
+            .each(($el, index, $list) => {
+                // After entering the 'ind' characters if India appears then choose it
+                // JS will use triple equals to check equality
+                if($el.text() === 'India'){
+                    $el.click();
+                }
+            })
+
     })
 });
